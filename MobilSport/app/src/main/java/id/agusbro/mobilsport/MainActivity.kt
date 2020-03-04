@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import id.agusbro.mobilsport.Adapter.MobilAdapter
 import java.util.concurrent.Executor
+import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity() {
 
@@ -39,6 +40,7 @@ class MainActivity : AppCompatActivity() {
                 i.putExtra("details",data.Details)
                 i.putExtra("harga",data.Harga)
                 i.putExtra("subName", data.SubName)
+                i.putExtra("spek", data.Spek)
                 startActivity(i)
             }
         })
@@ -48,5 +50,19 @@ class MainActivity : AppCompatActivity() {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.menu_items, menu)
         return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId){
+            R.id.menu_about->{
+                startActivity(Intent(this, About::class.java))
+                true
+            }
+            R.id.menu_exit->{
+                finish()
+                exitProcess(0)
+            }
+            else->super.onOptionsItemSelected(item)
+        }
     }
 }

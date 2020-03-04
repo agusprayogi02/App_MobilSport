@@ -6,7 +6,7 @@
         android:title="@string/about_me"
         app:showAsAction="never" />
     <item
-        android:id="@+id/exit"
+        android:id="@+id/menu_exit"
         android:title="@string/exit"
         app:showAsAction="never" />
 </menu>
